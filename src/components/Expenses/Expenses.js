@@ -1,10 +1,15 @@
 import React from "react";
 import { ExpenseItem } from "./ExpenseItem";
+import { Card } from "../UI/Card";
+import "./Expenses.css";
 
 export const Expenses = ({ items }) => {
   return (
-    <div className="expenses">
-      <ExpenseItem
+    <Card className="expenses">
+      {items.map(({ title, amount, date, id }) => (
+        <ExpenseItem key={id} title={title} date={date} amount={amount} />
+      ))}
+      {/* <ExpenseItem
         title={items[0].title}
         amount={items[0].amount}
         date={items[0].date}
@@ -23,7 +28,7 @@ export const Expenses = ({ items }) => {
         title={items[3].title}
         amount={items[3].amount}
         date={items[3].date}
-      />
-    </div>
+      /> */}
+    </Card>
   );
 };
